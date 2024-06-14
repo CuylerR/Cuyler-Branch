@@ -1,4 +1,8 @@
 import { useState } from 'react'
+
+// You can specify which plugins you need from Bootstrap:
+import { Button } from 'react-bootstrap'; 
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,7 +11,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <>  
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -18,12 +22,13 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* Bootstrap components Button, Alert, shown below */}
+        <Button variant="primary" onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        </Button>
+          <div className="alert alert-danger p-2" role="alert">
+           Edit <code>src/App.jsx</code> and save to test HMR
+          </div>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
