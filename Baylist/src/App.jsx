@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
+//router
+import { Routes, Route } from 'react-router-dom';
+import Home from './routes/home';
+import Login from './routes/login';
+import Account from './routes/account';
+import Notifications from './routes/notifications';
+import Cart from './routes/cart';
+import Search from './routes/search';
+import Signup from './routes/signup';
+import Favorites from './routes/favorites';
+import Checkout from './routes/checkout';
+import ProductDetail from './routes/product';
+import UserPage from './routes/user';
+import SellerDashboard from './routes/sellerdashboard';
+import NotFound from './routes/notfound';
+import Layout from './routes/layout'; //can use later as index
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+    {/* routes */}
+      <Routes>
+          {/* Define your routes */}
+              <Route path="/" element={<Home/>} />
+              <Route path="/login" element={<Login/>} />
+              <Route path="/account" element={<Account/>} />
+              <Route path="/notifications" element={<Notifications/>} />
+              <Route path="/cart" element={<Cart/>} />
+              <Route path="/search" element={<Search/>} />
+              <Route path="/signup" element={<Signup/>} />
+              <Route path="/favorites" element={<Favorites/>} />
+              <Route path="/checkout" element={<Checkout/>} />
+              <Route path="/product/:id" element={<ProductDetail/>} />
+              <Route path="/user/:username" element={<UserPage/>} />
+              <Route path="/seller-dashboard" element={<SellerDashboard/>} />
+              <Route path="*" element={<NotFound/>} />
+          {/* Footer can go here */}
+      </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
-
 export default App
